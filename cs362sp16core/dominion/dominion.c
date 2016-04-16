@@ -663,10 +663,10 @@ if (nextPlayer > (state->numPlayers - 1)){
   //uses switch to select card and perform actions
   switch( card ){
     case adventurer:
-		return adventurer_function(state, currentPlayer);
+		return adventurer_function(state, currentPlayer); 			// This is one of my refactor functions, and definition of it is in the end of program
 	
 	case council_room:
-		return council_room_function(state, currentPlayer, handPos);      
+		return council_room_function(state, currentPlayer, handPos);     // This is one of my refactor functions, and definition of it is in the end of program
 			
 
     case feast:
@@ -761,13 +761,13 @@ if (nextPlayer > (state->numPlayers - 1)){
       return 0;
     
 	case remodel:
-    	return remodel_function(choice1, choice2, state, currentPlayer, handPos);  
+    	return remodel_function(choice1, choice2, state, currentPlayer, handPos);   // This is one of my refactor functions, and definition of it is in the end of program
 
 	case smithy:
-		return smithy_function(state, currentPlayer, handPos);
+		return smithy_function(state, currentPlayer, handPos);						 // This is one of my refactor functions, and definition of it is in the end of program
 			
 	case village:
-		return village_function(state, currentPlayer, handPos);
+		return village_function(state, currentPlayer, handPos);						 // This is one of my refactor functions, and definition of it is in the end of program
 
 	case baron:
       state->numBuys++;//Increase buys by 1!
@@ -821,7 +821,6 @@ if (nextPlayer > (state->numPlayers - 1)){
       return 0;
 		
     case great_hall:
-      //+1 Card
       drawCard(currentPlayer, state);
 			
       //+1 Actions
@@ -1247,7 +1246,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
   return 0;
 }
 
-//five action cards functions
+//five action cards functions---------------------------------------------------------------------
 
 int adventurer_function(struct gameState *state, int currentPlayer){
     int drawntreasure = 0;
