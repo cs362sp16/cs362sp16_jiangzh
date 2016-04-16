@@ -1252,7 +1252,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 int adventurer_function(struct gameState *state, int currentPlayer){
     int drawntreasure = 0;
     int cardDrawn;
-    int z = 0;
+    int z = 1;
     int temphand[MAX_HAND];
 
     while(drawntreasure < 2){
@@ -1282,7 +1282,7 @@ int adventurer_function(struct gameState *state, int currentPlayer){
 int council_room_function(struct gameState *state, int currentPlayer, int handPos){
     int i;
         
-    for(i=0; i<4; i++)
+    for(i=0; i<3; i++)
         drawCard(currentPlayer, state);
 
     state->numBuys++;
@@ -1339,8 +1339,6 @@ int village_function(struct gameState *state, int currentPlayer, int handPos){
 
     return 0;
 }
-
-
 
 //end of dominion.c
 
