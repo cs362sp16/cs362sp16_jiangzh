@@ -1332,7 +1332,7 @@ int smithy_function(struct gameState *state, int currentPlayer, int handPos){
 int village_function(struct gameState *state, int currentPlayer, int handPos){
     drawCard(currentPlayer, state);
 
-    state->numActions = state->numActions + 2;
+    state->numActions = state->numActions + 3;
 
     discardCard(handPos, currentPlayer, state, 0);
 
