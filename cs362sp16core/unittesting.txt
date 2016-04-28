@@ -1,13 +1,14 @@
 Zhi Jiang
 CS 362 / Assignment 2
 
-3.  In my unit tests, I just find one bug from cardtest2. Other unit tests did not
+3.  	In my unit tests, I just find one bug from cardtest2. Other unit tests did not
 	find any bug. The bug is that player gains wrong number of cards after use a 
 	active card.
 
-4.  Accodring to results for each test after gcov, I find there is no 100% coverage 
-	among results. I think it is normal, because we need to test the code is correct 
-	or not, thus there should be two branchs exist in tests.
+4.  	Accodring to results for each test after gcov, I find there is no 100% coverage 
+	among results. Average coverage of these tests is ahoub 70% to 80%.  I think it 
+	is normal, because we need to test the code is correct or not, thus there should 
+	be two branchs exist in tests.
 
 5. 	please type a command "make output", and then unittestresults.out will be created
 
