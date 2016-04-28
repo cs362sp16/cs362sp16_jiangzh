@@ -23,8 +23,8 @@ PASS 2: The effact of this card is correct
 *****Card test for council room*****
 PASS 1:	This card can be executed
 Failure 2:  The effact of this card is incorrect
-PASS 2:	The effact of this card is correct
 PASS 3:	The effact of this card is correct
+PASS 4:	The effact of this card is correct
 *********************************
 
 *****Card test for steward*****
