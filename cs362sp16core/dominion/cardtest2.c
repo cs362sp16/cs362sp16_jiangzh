@@ -42,15 +42,15 @@ int main(){
 		
 		real_result = g_s.numBuys;
 		if(!assert_result(real_result, test_result2+1))
-            printf("Failure 2:	The effact of this card is incorrect\n");    
+            printf("Failure 3:	The effact of this card is incorrect\n");    
         else
-            printf("PASS 2:	The effact of this card is correct\n");	
+            printf("PASS 3:	The effact of this card is correct\n");	
 			
 		real_result = g_s.handCount[1];
 		if(!assert_result(real_result, test_result2+1-1))
-            printf("Failure 3:	The effact of this card is incorrect\n");
+            printf("Failure 4:	The effact of this card is incorrect\n");
         else
-            printf("PASS 3:	The effact of this card is correct\n");	
+            printf("PASS 4:	The effact of this card is correct\n");	
 	}
 	printf("*********************************\n");	
 	return 0;
