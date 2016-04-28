@@ -21,7 +21,7 @@ int main(){
 	int a_cards[10] = {adventurer, council_room, minion, village, cutpurse, mine, gardens, sea_hag, tribute, smithy};
 	int test_result, real_result;	
 
-	printf("*****Card test for smithy*****\n");
+	printf("\n*****Card test for smithy*****\n");
 	initializeGame(2, a_cards, 3, &g_s);
 
 	test_result = numHandCards(&g_s);	

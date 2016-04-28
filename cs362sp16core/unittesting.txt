@@ -1,0 +1,17 @@
+Zhi Jiang
+CS 362 / Assignment 2
+
+3. I did not find any bugs after I done unit tests
+
+4.  Accodring to results for each test after gcov, I find there is no 100% coverage 
+	among results. I think it is normal, because we need to test the code is correct 
+	or not, thus there should be two branchs exist in tests.
+
+5. 	please type a command "make output", and then unittestresults.out will be created
+
+6.	In general, unit testing is a good way to inspect small part of the programming, the
+ 	The advantages of unit testing is that it can quickly and accurately seek probles in
+	a small part. And it will not be effacted by other codes in programming. So in this 
+	assignment, unit testing help me understand how to separate a programing, and to test
+	each parts. 
+

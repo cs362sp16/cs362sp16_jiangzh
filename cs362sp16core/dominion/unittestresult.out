@@ -1,0 +1,34 @@
+*****Unit test for getCost()*****
+PASS 1: This function is correct
+PASS 1: This function is correct
+PASS 1: This function is correct
+*********************************
+
+****Unit test for fullDeckCount()*****
+PASS 1: The function is correct
+*********************************
+
+****Unit test for drawCard()*****
+PASS 1: The function is correct
+*********************************
+
+****Unit test for discardCard()*****
+PASS 1: The function is correct
+*********************************
+*****Unit test for getCost()*****
+PASS 1: This function is correct
+PASS 1: This function is correct
+PASS 1: This function is correct
+*********************************
+
+****Unit test for fullDeckCount()*****
+PASS 1: The function is correct
+*********************************
+
+****Unit test for drawCard()*****
+PASS 1: The function is correct
+*********************************
+
+****Unit test for discardCard()*****
+PASS 1: The function is correct
+*********************************

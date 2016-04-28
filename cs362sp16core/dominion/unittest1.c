@@ -18,7 +18,7 @@ int assert_result(int p1, int p2){
 int main(){
     int real_result;
 	
-	printf("*****Unit test for getCost()*****\n");
+	printf("\n*****Unit test for getCost()*****\n");
 	real_result = getCost(adventurer);
 	if(!assert_result(real_result, 6))
 		printf("FAILURE 1: This function is wrong\n");	
