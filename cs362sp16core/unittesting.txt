@@ -8,13 +8,17 @@ CS 362 / Assignment 2
 4.  	Accodring to results for each test after gcov, I find there is no 100% coverage 
 	among results. Average coverage of these tests is ahoub 70% to 80%.  I think it 
 	is normal, because we need to test the code is correct or not, thus there should 
-	be two branchs exist in tests.
+	be two branchs exist in tests. Some brachs cannot be executed by program if the 
+	test is successful.
 
 5. 	please type a command "make output", and then unittestresults.out will be created
 
 6.	In general, unit testing is a good way to inspect small part of the programming, the
- 	The advantages of unit testing is that it can quickly and accurately seek probles in
+ 	The advantages of unit testing is that it can quickly and accurately seek problems in
 	a small part. And it will not be effacted by other codes in programming. So in this 
-	assignment, unit testing help me understand how to separate a programing, and to test
-	each parts. 
+	assignment, there are many functions and files. If we do not use unit test, it will 
+	be hard for seeking bug in this complex program. Unit testing help me understand how 
+	to separate a programing, and to test each parts. We do not need to think about all 
+	details in this game. We just need to focus on the effect of the function we test and 
+	compare results.
 
