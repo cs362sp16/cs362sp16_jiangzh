@@ -1,8 +1,8 @@
 
 *****Unit test for getCost()*****
 PASS 1: This function is correct
-PASS 1: This function is correct
-PASS 1: This function is correct
+PASS 2: This function is correct
+PASS 3: This function is correct
 *********************************
 
 ****Unit test for fullDeckCount()*****

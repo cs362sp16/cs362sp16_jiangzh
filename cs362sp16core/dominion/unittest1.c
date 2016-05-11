@@ -27,15 +27,15 @@ int main(){
 
 	real_result = getCost(feast);
     if(!assert_result(real_result, 4)) 
-        printf("FAILURE 1: This function is wrong\n");  
+        printf("FAILURE 2: This function is wrong\n");  
     else
-        printf("PASS 1: This function is correct\n");	
+        printf("PASS 2: This function is correct\n");	
 	
 	real_result = getCost(curse);
     if(!assert_result(real_result, 0)) 
-		printf("FAILURE 1: This function is wrong\n");  
+		printf("FAILURE 3: This function is wrong\n");  
     else
-        printf("PASS 1: This function is correct\n");	
+        printf("PASS 3: This function is correct\n");	
 	
 	printf("*********************************\n");
     return 0;
