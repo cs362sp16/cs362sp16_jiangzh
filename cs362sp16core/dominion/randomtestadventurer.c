@@ -5,6 +5,7 @@
 #include "assert.h"
 #include "dominion_helpers.h"
 #include "math.h"
+#include <time.h>
 
 #define TIME_LOOP 2000
 int error_list[3];
@@ -42,6 +43,7 @@ int main(int argc, char* argv[]){
 	int a_cards[10] = {adventurer, council_room, minion, village, cutpurse, mine, gardens, sea_hag, tribute, smithy};
 	int i, j, n, p, seed, number_player;
 	
+	srand(time(NULL));	
 	printf("\n*****Random test for adventurer*****\n");
 
     for(i=0; i<3; i++)

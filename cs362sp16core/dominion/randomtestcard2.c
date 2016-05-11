@@ -8,6 +8,7 @@ smithy
 #include "assert.h"
 #include "dominion_helpers.h"
 #include "math.h"
+#include <time.h>
 
 #define TIME_LOOP 2000
 int error_list[2];
@@ -38,7 +39,8 @@ int main(int argc, char* argv[]){
     int i, j, n, p, seed, number_player;
     
     printf("\n*****Random test for smithy******\n");
-    
+ 	srand(time(NULL));
+   
     for(i=0; i<2; i++)
         error_list[i] = 0;
     

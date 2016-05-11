@@ -8,6 +8,7 @@ steward: choose 1 actions - draw two cards - gain two coins, give up two cards
 #include "assert.h"
 #include "dominion_helpers.h"
 #include "math.h"
+#include <time.h>
 
 #define TIME_LOOP 2000
 int error_list[4];
@@ -50,9 +51,11 @@ int main(int argc, char* argv[]){
     struct gameState g_s;
     int a_cards[10] = {adventurer, steward, minion, village, cutpurse, mine, gardens, sea_hag, tribute, smithy};
     int i, j, n, p, seed, number_player, choice;
-    printf("\n***** Random test for steward *****\n");
     
-    for(i=0; i<4; i++)
+	printf("\n***** Random test for steward *****\n");
+	srand(time(NULL));    
+    
+	for(i=0; i<4; i++)
         error_list[i] = 0;
 
     if(argv[1]!=NULL)
