@@ -71,7 +71,7 @@ output2:
 	gcov dominion.c >> randomtestcard2.out
 	cat dominion.c.gcov >> randomtestcard2.out
 
-randomtest:
+all_randomtest:
 	make randomtestadventurer
 	make randomtestcard1 
 	make randomtestcard2
