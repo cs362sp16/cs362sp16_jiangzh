@@ -1,9 +1,28 @@
 Zhi Jiang
 CS 362 / Assignment 3
 
-According to results of these three random test. The coverage is 100% for each card. I set 2000 as times for making
-loop, and time I took is about 5 seconds for completing all tests. It is obvious that random test has higher coverage
-than unit test. The cause of this difference between them is that random test can check all conditions for a card or a 
-function, in the other words, it can cover all branches. As for unit test, usually we merely set a fixed value or parament
-to implement test, so this way would cause that some branches are ignored. So in my opinion, I tend to believe that random
-test has better fault detection capability.
+Compile command: make all_randomtest
+                 make output2 
+
+In this assignment I chose adventurer, smithy, and steward these three card to complete random testing.
+I used three steps to design each random testing. 1. determine random inputs 2. write codes to generate
+random inputs 3. check results after calling corresponding functions or codes with random inputs. Adventurer
+and smithy have the same inputs, but steward has an input, which is choice. According to professor's code in 
+lecture, I use similar way to generate random input for hand count, deck count, and number of player etc. 
+Finally, I write code to check results depend on these cards' effect. For Adventurer, I check change of number 
+of hand cards and number of discard count. For smithy, I check change of number of hand cards. For steward, I 
+check effects of three kinds of choices.
+
+In my output file, I use a list to show the number of times each error appeared in this card. These results are 
+smithy and steward did not have any error, but adventurer showed error for ERROR 3. ERROR 3 is used to check 
+change of discard count, so which means there are some problems in this part in adventurer.
+
+I use -f -b tags to gcov to output results. This method can clear inspect coverage of function and their branches.
+According to results of gcov, I find the coverage is 100% for each card for random testing. I set 2000 as times 
+for making loop, and time I took is about 8 seconds for completing all tests. It is obvious that random testing has 
+higher coverage than unit test. The cause of this difference between them is that random testing can check all 
+conditions for a card or a function, in the other words, it can cover all branches as soon as possible. As for unit 
+testing, usually we merely set a fixed value or parament to implement test, so this way would cause that some branches 
+are ignored. Secondly, random testing has better fault detection, because if we only use unit testing and get a 
+"correct" program, it does not mean this program is real correct, because it misses many other conditions. So in my 
+opinion, I tend to believe that random testing has better fault detection capability.
