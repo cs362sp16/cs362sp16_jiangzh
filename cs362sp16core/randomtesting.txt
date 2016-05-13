@@ -2,7 +2,7 @@ Zhi Jiang
 CS 362 / Assignment 3
 
 Compile command: make all_randomtest
-                 make output2 
+Output command:  make output2 
 
 In this assignment I chose adventurer, smithy, and steward these three card to complete random testing.
 I used three steps to design each random testing. 1. determine random inputs 2. write codes to generate
