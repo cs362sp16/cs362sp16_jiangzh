@@ -6,9 +6,9 @@ CS 362 / Assignment 2
 	active card.
 
 4.  	Accodring to results for each test after gcov, I find there is no 100% coverage 
-	among results. Average coverage of these tests is ahoub 70% to 80%.  I think it 
+	among results. Average coverage of these tests is about 70% to 80%.  I think it 
 	is normal, because we need to test the code is correct or not, thus there should 
-	be two branchs exist in tests. Some brachs cannot be executed by program if the 
+	be two branchs exist in tests. Some branchs cannot be executed by program if the 
 	test is successful.
 
 5. 	please type a command "make output", and then unittestresults.out will be created
