@@ -1,5 +1,0 @@
-Zhi Jiang
-CS 362 / Assignment 1
-
-Refactor functions: adventuer, counicl room, remodel, smithy, village
-process: actually in this process, I did not use any particular way to refacte them. The first thing I did is to determin paraments for each functions. Specifically, I need to which variable can be changed to local variable in this function and which variable only need to be passed from outside. Thus these functions do not have any differences with orignal codes.
