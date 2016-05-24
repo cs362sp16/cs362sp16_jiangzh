@@ -24,7 +24,6 @@ int check_num_action(struct gameState *g){
 
 	for(i=0; i<numHandCards(g); i++)
 		if(g->hand[whose][i] >= adventurer && g->hand[whose][i] <= treasure_map)
-			if(g->hand[whose][i]!=9)
 				num++;
 
 	return num;
@@ -71,6 +70,21 @@ void generate_choice(struct gameState *g, int card, int* choice1, int* choice2, 
 	}
 	else if(card==steward){
 		*choice1 = rand()%3;
+		*choice2 = 0;
+		*choice3 = 0;
+	}
+	else if(card==embargo){
+		*choice1 = rand()%10;
+		*choice2 = 1;
+		*choice3 = 0;
+	}
+	else if(card==cutpurse){
+		*choice1 = rand()%27;
+		*choice2 = -1;
+		*choice3 = -1;
+	}
+	else if(card==salvager){
+		*choice1 = rand()%2;
 		*choice2 = -1;
 		*choice3 = -1;
 	}
@@ -84,11 +98,11 @@ void generate_choice(struct gameState *g, int card, int* choice1, int* choice2, 
 void random_kingdomcard(int *r_kingdomcard){
 	int i;
 	
-	r_kingdomcard[0]=rand()%(treasure_map - 7 + 1) + 8;
+	r_kingdomcard[0]=rand()%(treasure_map - 7 + 1) + 7;
 	
 	for(i=1; i<10; i++){
 		do{
-			r_kingdomcard[i]=rand()%(treasure_map - 7 + 1) + 8; 
+			r_kingdomcard[i]=rand()%(treasure_map - 7 + 1) + 7; 
 		}
 		while(check_kingdomcard(r_kingdomcard, i));
 	}
@@ -135,7 +149,7 @@ void perform_actions(struct gameState *g){
 		do{
 			handPos = rand()%handCount;
 			gainCard = g->hand[g->whoseTurn][handPos];
-			if(gainCard >= adventurer && gainCard <= treasure_map && gainCard != 9)
+			if(gainCard >= adventurer && gainCard <= treasure_map) 
 				result = 0;
 		}while(result==1);
 	

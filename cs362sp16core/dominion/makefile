@@ -84,13 +84,11 @@ all_randomtest:
 	make randomtestcard1 
 	make randomtestcard2
 
-all_cardtest: 
+all_unittest: 
 	make cardtest1 
 	make cardtest2
 	make cardtest3
 	make cardtest4
-
-all_unittest: 
 	make unittest1
 	make unittest2
 	make unittest3
