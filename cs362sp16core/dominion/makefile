@@ -48,6 +48,9 @@ randomtestcard1:
 randomtestcard2:
 	gcc -fprofile-arcs -ftest-coverage -Wall -std=c99 dominion.c randomtestcard2.c rngs.c -o randomtestcard2 -lm -g 
 
+testdominion:
+	gcc -fprofile-arcs -ftest-coverage -Wall -std=c99 dominion.c testdominion.c rngs.c -o testdominion -lm -g
+
 output:
 	./unittest1 &> unittestresults.out 
 	./unittest2 >> unittestresults.out 
@@ -71,6 +74,11 @@ output2:
 	gcov -f -b dominion.c >> randomtestcard2.out
 	cat dominion.c.gcov >> randomtestcard2.out
 
+output3:
+	./testdominion 42
+	gcov -f -b dominion.c &> testdominion.out
+	cat dominion.c.gcov >> testdominion.out
+
 all_randomtest:
 	make randomtestadventurer
 	make randomtestcard1 
@@ -91,4 +99,4 @@ all_unittest:
 all: playdom player
 
 clean:
-	rm -rf *.o unitestresults.out playdom.exe playdom test.exe test player randomtestadventurer randomtestcard1 randomtestcard2 unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM
+	rm -rf *.o unitestresults.out playdom.exe playdom test.exe test player testdominion randomtestadventurer randomtestcard1 randomtestcard2 unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM
