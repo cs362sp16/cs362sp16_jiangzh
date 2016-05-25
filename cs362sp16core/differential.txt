@@ -1,5 +1,5 @@
 Zhi Jiang
-CS 362 / Assignment 3
+CS 362 / Assignment 4
 
 First of all, as for my dominion.c, it runs for 10 times and the coverage is more than 80%, so I think my 
 testdominion.c is useful to do testing. Next, I used 18, 31 and 78 as seed to complete this differential 
