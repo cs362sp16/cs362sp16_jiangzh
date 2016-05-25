@@ -75,7 +75,7 @@ output2:
 	cat dominion.c.gcov >> randomtestcard2.out
 
 output3:
-	./testdominion 42
+	./testdominion 42 &> testdominion.out
 	gcov -f -b dominion.c &> testdominion.out
 	cat dominion.c.gcov >> testdominion.out
 
@@ -97,4 +97,4 @@ all_unittest:
 all: playdom player
 
 clean:
-	rm -rf *.o unitestresults.out playdom.exe playdom test.exe test player testdominion randomtestadventurer randomtestcard1 randomtestcard2 unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM
+	rm -rf *.o unitestresults.out playdom.exe playdom diff.out difftest1.out difftest2.out test.exe test player testdominion randomtestadventurer randomtestcard1 randomtestcard2 unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4 player.exe testInit testInit.exe *.gcov *.gcda *.gcno *.so *.a *.dSYM

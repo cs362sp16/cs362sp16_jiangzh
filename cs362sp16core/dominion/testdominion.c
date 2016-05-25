@@ -7,7 +7,7 @@
 #include "math.h"
 #include <time.h>
 
-#define TEST_NUM 1000
+#define TEST_NUM 10
 
 int check_kingdomcard(int *r_kingdomcard, int i){
 	int j;
@@ -20,8 +20,8 @@ int check_kingdomcard(int *r_kingdomcard, int i){
 
 int check_num_action(struct gameState *g){
 	int i, num=0, whose;
+	
 	whose = g->whoseTurn;
-
 	for(i=0; i<numHandCards(g); i++)
 		if(g->hand[whose][i] >= adventurer && g->hand[whose][i] <= treasure_map)
 				num++;
@@ -114,13 +114,13 @@ void print_game_information(struct gameState *g, int *kingdom_cards, int seed){
 	printf("\n******Information of Game********\n");
 	
 	printf("The seed is %d\n", seed);
-    printf("Number of Player: %d\n", g->numPlayers);
-    printf("Kingdom Cards: \n");
-    for(i=0; i<5; i++)
-        printf("%d ", kingdom_cards[i]);
-    printf("\n");
-    for(i=5; i<10; i++)
-        printf("%d ", kingdom_cards[i]);
+	printf("Number of Player: %d\n", g->numPlayers);
+	printf("Kingdom Cards: \n");
+	for(i=0; i<5; i++)
+		printf("%d ", kingdom_cards[i]);
+	printf("\n");
+	for(i=5; i<10; i++)
+		printf("%d ", kingdom_cards[i]);
 	printf("\n");
 	
 	printf("*********Game Begins**********\n");
@@ -158,7 +158,6 @@ void perform_actions(struct gameState *g){
 		playCard(handPos, choice1, choice2, choice3, g);
 		printf("Player %d: played %d\n", g->whoseTurn+1, gainCard);
 	}
-
 	else
 		printf("Player %d: skip play phase\n", g->whoseTurn+1);
 }
