@@ -1,0 +1,29 @@
+Tester: Zhi Jiang
+Date: Jun 1, 2016
+
+Method of Testing: 
+	- unit testing 
+	- random testing
+
+Results:
+	*****Card test for smithy*****
+	PASS 1: This card can be executed
+	FAILURE 2: The effact of this card is incorrect
+	*********************************
+
+	*****Random test for smithy******
+	Error  Time 
+	1       0    
+	2       2000 
+	*********************************
+
+Location:
+	- function_renamed_smithy()
+	- line 1327: for (i = 0; i < 2; i++)
+
+Bug: 
+	- the time of loop is incorrect
+
+Correct Statement:
+	- for (i = 0; i < 3; i++)
+	

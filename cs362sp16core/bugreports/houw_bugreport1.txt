@@ -1,0 +1,22 @@
+Tester: Zhi Jiang
+Date: Jun 1, 2016
+
+Method of Testing: 
+	- unit testing 
+	- random testing
+
+Results:
+	*****Card test for great hall*****
+	PASS 1: This card can be executed
+	Failure 2:  The effact of this card is incorrect
+	*********************************
+
+Location:
+	- _cardEffect_great_hall()
+	- line 684
+
+Bug: 
+	- delete one of effects for this card
+	
+Correct Statement:
+	- drawCard(currentPlayer, state);

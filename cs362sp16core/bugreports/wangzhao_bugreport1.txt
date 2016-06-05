@@ -1,0 +1,28 @@
+Tester: Zhi Jiang
+Date: Jun 1, 2016
+
+Method of Testing: 
+	- unit testing 
+	- random testing
+
+Results:
+	*****Card test for council room*****
+	PASS 1: This card can be executed
+	Failure 2:  The effact of this card is incorrect
+	PASS 3: The effact of this card is correct
+	PASS 4: The effact of this card is correct
+	************************************
+
+Location:
+	- function_renamed_council_room()
+	- line 1295: for (i = 0; i < 3; i++)
+	
+Bug: 
+	- the time of loop is incorrect
+
+Correct Statement:
+	- for (i = 0; i < 4; i++)
+	
+
+
+
