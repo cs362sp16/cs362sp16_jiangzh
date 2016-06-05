@@ -1,7 +1,18 @@
 Zhi Jiang
-CS 362 / Assignment 3
+CS 362 / Assignment 4
 
-I used 18, 31 and 78 as seed to complete this differential testing. Most of results I gain is "TEST PASSED". As for "TEST FAILED" results, I think the cause of creating differences is that there are many random testing in testdominion.c. These random testing will create different value such as number of players. So I think these differences are reasonable.
+First of all, as for my dominion.c, it runs for 10 times and the coverage is more than 80%, so I think my 
+testdominion.c is useful to do testing. Next, I used 18, 31 and 78 as seed to complete this differential 
+testing by differential.sh. Most of results I gain is "TEST PASSED". I still gain a few of "TEST FAILED" 
+results, but I think the cause of creating differences is that here are many random testing in testdominion.c. 
+These random testing will create different value such as number of players and choice of a card and these value
+can direcly affect final results. So I think these differences are reasonable.
 
-After I compared my dominion implementation and my classmate Wenbo Hou. I get "TEST FAILED", and our coverage is 81.88% and 81.89% respectively. I think it is possible that using this way to find some errors in dominion.c, because if we find a difference in somewhere, so it probably means there is a error in either of them. But actually it is not an dieal case for differential testing. There are two reason, first one is that this testing is also random testing, so which means that testdominion will use different value to test these dominion implementation and then create different results. Second reason is that we cannot determine whice one is correct althouht we can find differentces.
+After I compared my dominion implementation and my classmate Wenbo Hou. I get "TEST FAILED", and our coverage 
+is 81.88% and 81.89% respectively. I think it is possible that some errors can be found by this way in dominion.c, 
+because if we find a difference in somewhere such as number of hand cards, so it probably means there is a error 
+in either of them. But actually it is not an ideal case for differential testing. There are two reason, first one 
+is that this testing is also random testing, so which means that testdominion will use different value to test these 
+dominion implementations and then create different results. Second reason is that we cannot determine which one is 
+correct although we can find differences. These results cannot notice which is correct, and we just there is a difference.
 
