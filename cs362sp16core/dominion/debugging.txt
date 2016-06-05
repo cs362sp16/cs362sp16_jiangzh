@@ -1,0 +1,165 @@
+According to my classmates' reports and my own testing, I have three incorrect cards, which are
+adventurer, council room, and village.
+
+Card: adventurer
+Debugger: GDB
+File: randomtestadventure
+Error: Did not implement effect of discarding cards correctly
+
+Break point:
+	- line 27: real_result = cardEffect(adventurer, 0, 0, 0, g_s, 0, 0);
+	- The effect of card starts to change after calling this function.
+
+	----------------------------------------------------------------------------------------
+	(gdb) break 27
+	Breakpoint 1 at 0x10000bdad: file randomtestadventurer.c, line 27.
+	(gdb) r
+	Starting program: /Users/Jason/Documents/Program/cs362/cs362sp16core/dominion/randomtestadventurer 
+
+	*****Random test for adventurer*****
+
+	Breakpoint 1, checkAdventurer (g_s=0x7fff5fbf9270, currentPlayer=3) at randomtestadventurer.c:27
+	27		real_result = cardEffect(adventurer, 0, 0, 0, g_s, 0, 0);	 
+	----------------------------------------------------------------------------------------
+
+Bug:
+	- While I was using GDB, I found the value of z is incorrect because the value of z is set to 1 rather 
+	than 0 when this card initializes. This mistake affects the following codes.
+
+	----------------------------------------------------------------------------------------
+	(gdb) step
+	1255	    int z = 1;
+	(gdb) 
+
+	.........
+
+	(gdb) step
+	1268	            temphand[z]=cardDrawn;
+	(gdb) print z
+	$1 = 1
+	(gdb) 
+	----------------------------------------------------------------------------------------
+
+
+Card: council room
+Debugger: GDB
+File: cardtest2
+Error: Did not implement effect of drawing cards correctly
+
+Break point:
+	- line 30: real_result = cardEffect(council_room, 0, 0, 0, &g_s, 0, 0);
+	- The effect of card starts to change after calling this function.
+
+	----------------------------------------------------------------------------------------
+	(gdb) break 30
+	Breakpoint 1 at 0x10000c550: file cardtest2.c, line 30.
+	(gdb) r
+	Starting program: /Users/Jason/Documents/Program/cs362/cs362sp16core/dominion/cardtest2 
+
+	*****Card test for council room*****
+
+	Breakpoint 1, main () at cardtest2.c:30
+	30		real_result = cardEffect(council_room, 0, 0, 0, &g_s, 0, 0);
+	----------------------------------------------------------------------------------------
+
+Bug:
+	- While I was using GDB, I found time of loop of drawing card is 3 rather than 4
+
+	----------------------------------------------------------------------------------------
+	council_room_function (state=0x7fff5fbf9280, currentPlayer=0, handPos=0) at dominion.c:1285
+	1285	    for(i=0; i<3; i++)
+	(gdb) step
+	1286	        drawCard(currentPlayer, state);	
+	----------------------------------------------------------------------------------------
+
+Card: village
+Debugger: GDB
+File: testdominion
+Error: Did not implement effect of drawing action cards correctly
+
+Break point:
+	- line 157: generate_choice(g, gainCard, &choice1, &choice2, &choice3);
+	- I set a condition breakpoint and which is "break 157 if gainCard==14". The reason is
+	that this is random testing for whole game, so I cannot test this file step by step, 
+	and the fastest way should be to make condition. When gainCard is equal to 14, which means 
+	user is going to play card "village", so I check effect of this card at this time.
+
+	----------------------------------------------------------------------------------------
+	(gdb) break 157 if gainCard==14
+	Breakpoint 1 at 0x10000d685: file testdominion.c, line 157.
+	(gdb) r
+	Starting program: /Users/Jason/Documents/Program/cs362/cs362sp16core/dominion/testdominion 	
+	******Information of Game********
+	The seed is 2
+	Number of Player: 3
+	Kingdom Cards: 
+
+	.........
+
+	Player 2: bought 1
+	Player 2: end turn
+
+	Breakpoint 1, perform_actions (g=0x7fff5fbf9280) at testdominion.c:157
+	157			generate_choice(g, gainCard, &choice1, &choice2, &choice3);		
+	(gdb) print gainCard
+	$1 = 14
+	----------------------------------------------------------------------------------------
+
+Bug:
+	- While I was using GDB, I found the the number of action card increases by 3 rather than 2
+
+	----------------------------------------------------------------------------------------
+	(gdb) step
+	771			return village_function(state, currentPlayer, handPos);						 
+	(gdb) step
+	village_function (state=0x7fff5fbf9280, currentPlayer=1, handPos=1) at dominion.c:1334
+	1334	    drawCard(currentPlayer, state);
+	(gdb) next
+	1336	    state->numActions = state->numActions + 3;
+	----------------------------------------------------------------------------------------
+
+Summary:
+	- In this whole process of using GDB, I usually adopt these steps to solve problems in my 
+	code. First of all, I must know which code is incorrect, so according to my classmates' bug 
+	reports and my own testing. I understand my cards adventurer, council room and village are 
+	wrong. Secondly, I need to choose proper file for GDB, so I chose cardtest2 for council room, 
+	randomtestadventurer for adventurer, and testdominion for village. 
+
+	- After these things are done, I can start to use GDB. Now, first thing I need to know break 
+	point for each file. File cardtest2 and randomtestadventurer are used to test council room and 
+	adventurer wholly, so it is easy to find break point in these file. I chose cardEffect() function 
+	as break point for both of them because when calling this function, value I want to test starts 
+	to change, so this is the best beginning. 
+
+	As for testdominion, it is a little hard to set break point because this file is used to test 
+	entire game. Condition break point can solve this problem. When generate_choice(g, gainCard, 
+	&choice1, &choice2, &choice3) is called, the variable "gainCard" means card user will play, so 
+	I set condition break point "break 157 if gainCard==14"(village is 14) and the program will stop 
+	until user is ready to play village.
+
+	- Now, I narrowed the range of finding bug according to break point, so I used command "step" to check 
+	each line in this small range. When I find place where bug probably appears, I used command "print 
+	variable" to check value of some variables. Something, I will set value to some variables in order to 
+	better check these codes. Eventually, I found all of bugs in my code.
+
+
+Agan's Debugging Rules
+
+Rule #1: "Understand the System"
+	- I spent some time to understand rule of this game and each function in this source code. 
+	Specifically, I must understand some significance of some important variables such as handPos 
+	and choice, and I also need to know how these function implement effects of these cards.
+
+Rule #4: "Divide and Conquer"
+	- I followed this rule when I set break point. The role of break point is to help me narrow range
+	of finding problems through dividing these codes, so I have to need where is the most appropriate 
+	place for break point. 
+
+Rule #5: "Change One Thing at a Time"
+	- This is a very useful strategy for testing. As we know, most of codes are not completely
+	independence, in the other words, if you change many things at the same time, which means 
+	you cannot accurately find which thing is wrong, because they are interactional probably. 
+	The purpose of this rule is to focus on isolate factors, and check influences of this isolate 
+	factors. 
+
+
