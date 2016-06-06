@@ -1,0 +1,198 @@
+
+Differentce 1:----------------------------------
+
+--- original/dominion.c	2016-06-05 23:46:50.000000000 -0700
++++ mutant/council_room/1.c	2016-06-05 17:35:03.000000000 -0700
+@@ -1282,13 +1282,14 @@
+ int council_room_function(struct gameState *state, int currentPlayer, int handPos){
+     int i;
+         
+-    for(i=0; i<4; i++)
+-        drawCard(currentPlayer, state);
+-
++    for (i=0; i<4; i++)
++        drawCard(currentPlayer, state); 
++          
+     state->numBuys++;
+ 
+-    for(i=0; i<state->numPlayers; i++)
+-        if(i != currentPlayer)
++   /* XXX: original code was :     for(i=0; i<state->numPlayers; i++) */
++    for(i=0; i<state->numPlayers-1; i++)
++      if(i != currentPlayer)
+             drawCard(i, state);
+ 
+     discardCard(handPos, currentPlayer, state, 0); 
+
+Coverage 1:----------------------------------
+File 'dominion.c'
+Lines executed:20.94% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 1:---------------------------------
+--- mutant/council_room_result.out	2016-06-05 23:59:34.000000000 -0700
++++ original/council_room_result.out	2016-06-05 23:59:34.000000000 -0700
+@@ -3,5 +3,5 @@
+ PASS 1:	This card can be executed
+ PASS 2:	The effact of this card is correct
+ PASS 3:	The effact of this card is correct
+-Failure 4:	The effact of this card is incorrect
++PASS 4:	The effact of this card is correct
+ *********************************
+
+Differentce 2:----------------------------------
+
+--- original/dominion.c	2016-06-05 23:46:50.000000000 -0700
++++ mutant/council_room/2.c	2016-06-05 17:29:43.000000000 -0700
+@@ -1288,7 +1288,8 @@
+     state->numBuys++;
+ 
+     for(i=0; i<state->numPlayers; i++)
+-        if(i != currentPlayer)
++        /* XXX: original code was :         if(i != currentPlayer) */
++        if(i == currentPlayer)
+             drawCard(i, state);
+ 
+     discardCard(handPos, currentPlayer, state, 0); 
+
+Coverage 2:----------------------------------
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 2:---------------------------------
+--- mutant/council_room_result.out	2016-06-05 23:59:34.000000000 -0700
++++ original/council_room_result.out	2016-06-05 23:59:34.000000000 -0700
+@@ -1,7 +1,7 @@
+ 
+ *****Card test for council room*****
+ PASS 1:	This card can be executed
+-Failure 2:  The effact of this card is incorrect
++PASS 2:	The effact of this card is correct
+ PASS 3:	The effact of this card is correct
+-Failure 4:	The effact of this card is incorrect
++PASS 4:	The effact of this card is correct
+ *********************************
+
+Differentce 3:----------------------------------
+
+--- original/dominion.c	2016-06-05 23:46:50.000000000 -0700
++++ mutant/council_room/3.c	2016-06-05 17:22:46.000000000 -0700
+@@ -1283,7 +1283,8 @@
+     int i;
+         
+     for(i=0; i<4; i++)
+-        drawCard(currentPlayer, state);
++        /* XXX: original code was :         drawCard(currentPlayer, state); */
++        drawCard (currentPlayer-1, state);
+ 
+     state->numBuys++;
+ 
+
+Coverage 3:----------------------------------
+File 'dominion.c'
+Lines executed:22.66% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 3:---------------------------------
+--- mutant/council_room_result.out	2016-06-05 23:59:34.000000000 -0700
++++ original/council_room_result.out	2016-06-05 23:59:35.000000000 -0700
+@@ -1,7 +1,7 @@
+ 
+ *****Card test for council room*****
+ PASS 1:	This card can be executed
+-Failure 2:  The effact of this card is incorrect
++PASS 2:	The effact of this card is correct
+ PASS 3:	The effact of this card is correct
+ PASS 4:	The effact of this card is correct
+ *********************************
+
+Differentce 4:----------------------------------
+
+--- original/dominion.c	2016-06-05 23:46:50.000000000 -0700
++++ mutant/council_room/4.c	2016-06-05 17:37:51.000000000 -0700
+@@ -1282,10 +1282,10 @@
+ int council_room_function(struct gameState *state, int currentPlayer, int handPos){
+     int i;
+         
+-    for(i=0; i<4; i++)
++    for (i=0; i<4; i++)
+         drawCard(currentPlayer, state);
+-
+-    state->numBuys++;
++    /* XXX: original code was :      state->numBuys++*/      
++    state->numBuys--;
+ 
+     for(i=0; i<state->numPlayers; i++)
+         if(i != currentPlayer)
+
+Coverage 4:----------------------------------
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 4:---------------------------------
+--- mutant/council_room_result.out	2016-06-05 23:59:35.000000000 -0700
++++ original/council_room_result.out	2016-06-05 23:59:35.000000000 -0700
+@@ -2,6 +2,6 @@
+ *****Card test for council room*****
+ PASS 1:	This card can be executed
+ PASS 2:	The effact of this card is correct
+-Failure 3:	The effact of this card is incorrect
++PASS 3:	The effact of this card is correct
+ PASS 4:	The effact of this card is correct
+ *********************************
+
+Differentce 5:----------------------------------
+
+--- original/dominion.c	2016-06-05 23:46:50.000000000 -0700
++++ mutant/council_room/5.c	2016-06-05 17:32:30.000000000 -0700
+@@ -1282,7 +1282,8 @@
+ int council_room_function(struct gameState *state, int currentPlayer, int handPos){
+     int i;
+         
+-    for(i=0; i<4; i++)
++    /* XXX: original code was :     for(i=0; i<4; i++) */
++    for(i=0; i<4; i+=2)
+         drawCard(currentPlayer, state);
+ 
+     state->numBuys++;
+
+Coverage 5:----------------------------------
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:21.09% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 5:---------------------------------
+--- mutant/council_room_result.out	2016-06-05 23:59:35.000000000 -0700
++++ original/council_room_result.out	2016-06-05 23:59:36.000000000 -0700
+@@ -1,7 +1,7 @@
+ 
+ *****Card test for council room*****
+ PASS 1:	This card can be executed
+-Failure 2:  The effact of this card is incorrect
++PASS 2:	The effact of this card is correct
+ PASS 3:	The effact of this card is correct
+ PASS 4:	The effact of this card is correct
+ *********************************
+

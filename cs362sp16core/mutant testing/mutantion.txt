@@ -1,0 +1,176 @@
+Summary:
+	- I chose mutant testing for this part. There are some characters for this kind of 
+	testing. First character is the method of mutation is to make a small change in a 
+	program, and then gain a mutant. There are three kinds of mutation, and which are 
+	value mutations, decision mutations and statement mutations. Value mutations mean
+	that some value of constants or parameters have been changed as a mutant. Decision
+	mutations mean that replacing an operator or insertion of new operators. Statement
+	mutations mean that a statement have been modified directly.
+
+	- I need to create some mutants for dominion.c. I chose the mutant testing generator
+	professor recommends, but I failed to execute this generator. And then I chose another
+	mutant testing generator, which is a python file from the git hub and name is "mutate.py".
+	I used three steps to create mutants. First step is I only copy a block of codes I will test 
+	to a new C-language file such as adventurer function. Next, I create five mutants for this 
+	new C-language file by "mutate.py" generator. Finally, to put codes of new mutants to original 
+	source file and replace corresponding codes. The reason I did these three steps is that this 
+	generator is simple, so it cannot directly change some codes I will test if I use entire original 
+	source file. I have to put codes out and then only change these codes.
+
+	- After I gained enough mutants, I start to do mutant testing. I created two directoies,
+	one is used to store files about mutants and another is used to store files about original.
+	I created a shell script "mutant_testing.sh", which is used to compile these files, test them, 
+	and print results and differences of them. Eventually, I gained a file "cardname_results.out",
+	which is store results for each card.
+
+	- According to results for these four cards, I think my mutant testing should be successfully,
+	in the other words, I think my codes should be correct now. Because
+
+	- When I complete this part, I think mutation testing is usefor my codes, because this
+
+
+Card: adventurer  --------------------------------------->
+Kinds of Mutation:
+	- value mutations: 1 
+	- decision mutations: 3
+	- statement mutations: 1
+
+Coverage:
+	- original: 24.84% 
+	- mutant 1: 24.84%
+	- mutant 2: 24.84%
+	- mutant 3: 24.84%
+	- mutant 4: 24.84% 
+	- mutant 5: 24.84%
+
+Mutation Score Calculation:
+	- formula: (killed mutants / Total number of mutants) * 100
+	- Score:
+	
+Results:
+	- view file "adventurer_result.out"
+
+Analysis:
+	- Mutants testing generator generatered five mutants for card "adventurer". 
+	These mutants include two vale mutants, one decision mutant, and two statement 
+	mutants. Each mutant only contain a single fault.
+
+	- To use shell script to compile these five mutants and original source file at the
+	same time. And then to compare their results after using randomtestadventurer. To 
+	print their results and differences to corresponding output file "council_room.out".   
+
+	- According to results I gain, original program and mutant program generate different 
+	output, so which means that the mutant is killed by the test caes, and my mutant testing 
+	is good enough to detect the change between the original and the mutant program.
+
+Card: council room --------------------------------------->
+Kinds of Mutation:
+	- value mutations: 4
+	- decision mutations: 1
+	- statement mutations: 0
+
+Coverage:
+	- original: 21.94% 
+	- mutant 1: 21.09%
+	- mutant 2: 21.09%
+	- mutant 3: 21.09%
+	- mutant 4: 21.09%
+	- mutant 5: 21.09%
+
+Mutation Score Calculation:
+	- formula: (killed mutants / Total number of mutants) * 100
+	- killed mutants: 5
+	- total number of mutants: 5
+	- Score: 100%
+	
+Results:
+	- view file "council_room_result.out"
+
+Analysis:
+	- Mutants testing generator generatered five mutants for card "council room". 
+	These mutants include four vale mutants, one decision mutant, and zero statement 
+	mutants. Each mutant only contain a single fault
+
+	- To use shell script to compile these five mutants and original source file at the
+	same time. And then to compare their results after using cardtest2. To print their 
+	results and differences to corresponding output file "council_room.out".   
+
+	- According to results I gain, original program and mutant program generate different output, 
+	so which means that the mutant is killed by the test caesm, and my mutation score is 100%. My 
+	mutant testing is good enough to detect the change between the original and the mutant program
+
+Card: smity  --------------------------------------->
+Kinds of Mutation:
+	- value mutations: 5
+	- decision mutations: 0 
+	- statement mutations: 0
+
+Coverage:
+	- original: 24.53%
+	- mutant 1: 24.53%
+	- mutant 2: 24.53%
+	- mutant 3: 24.53%
+	- mutant 4: 24.53%
+	- mutant 5: 24.53%
+
+Mutation Score Calculation:
+	- formula: (killed mutants / Total number of mutants) * 100
+	- killed mutants: 5
+	- total number of mutants: 5
+	- Score: 100%
+	
+Results:
+	- view file "smity_result.out"
+
+Analysis:
+	- Mutants testing generator generatered five mutants for card "smity". These mutants 
+	include five vale mutants, zero decision mutant, and zero statement mutant. Each 
+	mutant only contain a single fault.
+
+	- To use shell script to compile these five mutants and original source file at the
+	same time. And then to compare their results after using randomtestcardtest2. To 
+	print their results and differences to corresponding output file "smity_result.out".  
+
+	- According to results I gain, original program and mutant program generate different output, 
+	so which means that the mutant is killed by the test caesm, and my mutation score is 100%. My 
+	mutant testing is good enough to detect the change between the original and the mutant program 
+
+Card: steward  --------------------------------------->
+Kinds of Mutation:
+	- value mutations: 1
+	- decision mutations: 2 
+	- statement mutations: 2
+
+Coverage:
+	- original: 25.47%
+	- mutant 1: 25.47%
+	- mutant 2: 25.47%
+	- mutant 3: 25.47%
+	- mutant 4: 25.47%
+	- mutant 5: 25.47%
+
+Mutation Score Calculation:
+	- formula: (killed mutants / Total number of mutants) * 100
+	- Score:
+	
+Results:
+	- view file "steward_result.out"
+
+Analysis:
+	- Mutants testing generator generatered five mutants, for card "steward". 
+	These mutants include one vale mutants, two decision mutant, and two statement 
+	mutants. Each mutant only contain a single fault
+
+	- To use shell script to compile these five mutants and original source file at the
+	same time. And then to compare their results after using randomtestcard1. To 
+	print their results and differences to corresponding output file.   
+
+	- According to results I gain, original program and mutant program generate different output, 
+	so which means that the mutant is killed by the test caes, and my mutant testing is good enough 
+	to detect the change between the original and the mutant program
+
+
+
+
+
+
