@@ -889,15 +889,18 @@ if (nextPlayer > (state->numPlayers - 1)){
 	  drawCard(currentPlayer, state);
 	  drawCard(currentPlayer, state);
 	}
+  /* XXX: original code was : 
       else if (choice1 == 2)
 	{
 	  //+2 coins
 	  state->coins = state->coins + 2;
 	}
+  */
       else
 	{
 	  //trash 2 cards in hand
-	  discardCard(choice2, currentPlayer, state, 1);
+    
+    discardCard (choice2, currentPlayer, state, 1);
 	  discardCard(choice3, currentPlayer, state, 1);
 	}
 			
@@ -1256,8 +1259,7 @@ int adventurer_function(struct gameState *state, int currentPlayer){
     int temphand[MAX_HAND];
 
     while(drawntreasure < 2){
-        /* XXX: original code was :         if(state->deckCount[currentPlayer] < 1) */
-        if(state->deckCount[currentPlayer] == 1)
+        if(state->deckCount[currentPlayer] < 1)
             shuffle(currentPlayer, state);
 
         drawCard(currentPlayer, state);

@@ -1256,8 +1256,7 @@ int adventurer_function(struct gameState *state, int currentPlayer){
     int temphand[MAX_HAND];
 
     while(drawntreasure < 2){
-        /* XXX: original code was :         if(state->deckCount[currentPlayer] < 1) */
-        if(state->deckCount[currentPlayer] == 1)
+        if(state->deckCount[currentPlayer] < 1)
             shuffle(currentPlayer, state);
 
         drawCard(currentPlayer, state);
@@ -1321,12 +1320,11 @@ int remodel_function(int choice1, int choice2, struct gameState *state, int curr
 
 int smithy_function(struct gameState *state, int currentPlayer, int handPos){
     int i;
-    
-	for(i=0; i<3; i++)
+  /* XXX: original code was :   or(i=0; i<3; i++)*/  
+	for(i=0; i<4; i++)
         drawCard(currentPlayer, state);
 
-    discardCard(handPos, currentPlayer, state, 0);
-    
+    discardCard (handPos, currentPlayer, state, 0);
 	return 0;
 
 }

@@ -897,8 +897,7 @@ if (nextPlayer > (state->numPlayers - 1)){
       else
 	{
 	  //trash 2 cards in hand
-    /* XXX: original code was :     discardCard(choice2, currentPlayer, state, 1); */
-    discardCard (choice2-1, currentPlayer, state, 1);
+	  discardCard(choice2, currentPlayer, state, 1);
 	  discardCard(choice3, currentPlayer, state, 1);
 	}
 			
@@ -1262,8 +1261,8 @@ int adventurer_function(struct gameState *state, int currentPlayer){
 
         drawCard(currentPlayer, state);
         cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
-
-        if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+        /* XXX: original code was :         if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)) */
+        if(cardDrawn != copper || cardDrawn != silver || cardDrawn != gold)
              drawntreasure++;
         else{
             temphand[z]=cardDrawn;

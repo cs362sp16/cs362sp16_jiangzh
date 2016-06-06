@@ -1,0 +1,141 @@
+
+Differentce 1:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/adventurer/1.c	2016-06-06 10:50:01.000000000 -0700
+@@ -1267,7 +1267,8 @@
+         else{
+             temphand[z]=cardDrawn;
+             state->handCount[currentPlayer]--;
+-            z++;
++            /* XXX: original code was :             z++; */
++            z+=2;
+         }
+     }
+ 
+
+Coverage 1:----------------------------------
+Test Results 1:---------------------------------
+--- mutant/adventurer_result.out	2016-06-06 12:25:21.000000000 -0700
++++ original/adventurer_result.out	2016-06-06 12:25:24.000000000 -0700
+@@ -2,6 +2,6 @@
+ *****Random test for adventurer*****
+ Error  Time
+ 1       0
+-2       3
+-3       1969
++2       0
++3       0
+ ******** Random test done ********
+
+Differentce 2:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/adventurer/2.c	2016-06-06 10:50:00.000000000 -0700
+@@ -1271,7 +1271,8 @@
+         }
+     }
+ 
+-    while(z-1 >= 0){
++    /* XXX: original code was :     while(z-1 >= 0){ */
++    while (! z-1 >= 0){
+         state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1];
+         z = z - 1;
+     }
+
+Coverage 2:----------------------------------
+Test Results 2:---------------------------------
+--- mutant/adventurer_result.out	2016-06-06 12:25:26.000000000 -0700
++++ original/adventurer_result.out	2016-06-06 12:25:29.000000000 -0700
+@@ -3,5 +3,5 @@
+ Error  Time
+ 1       0
+ 2       0
+-3       2000
++3       0
+ ******** Random test done ********
+
+Differentce 3:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/adventurer/3.c	2016-06-06 10:49:59.000000000 -0700
+@@ -1250,10 +1250,11 @@
+ //five action cards functions---------------------------------------------------------------------
+ 
+ int adventurer_function(struct gameState *state, int currentPlayer){
+-    int drawntreasure = 0;
+-    int cardDrawn;
+-    int z = 0;
+-    int temphand[MAX_HAND];
++      int drawntreasure = 0;
++      int cardDrawn;
++      int z = 0;
++      /* XXX: original code was :     int temphand[MAX_HAND]; */
++      short int temphand[MAX_HAND];
+ 
+     while(drawntreasure < 2){
+         if(state->deckCount[currentPlayer] < 1)
+
+Coverage 3:----------------------------------
+Test Results 3:---------------------------------
+--- mutant/adventurer_result.out	2016-06-06 12:25:31.000000000 -0700
++++ original/adventurer_result.out	2016-06-06 12:25:33.000000000 -0700
+@@ -2,6 +2,6 @@
+ *****Random test for adventurer*****
+ Error  Time
+ 1       0
+-2       1
+-3       1
++2       0
++3       0
+ ******** Random test done ********
+
+Differentce 4:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/adventurer/4.c	2016-06-06 10:49:54.000000000 -0700
+@@ -1254,8 +1254,8 @@
+     int cardDrawn;
+     int z = 0;
+     int temphand[MAX_HAND];
+-
+-    while(drawntreasure < 2){
++    /* XXX: original code was :         while(drawntreasure < 2){ */
++    while(drawntreasure > 2){
+         if(state->deckCount[currentPlayer] < 1)
+             shuffle(currentPlayer, state);
+ 
+
+Coverage 4:----------------------------------
+Test Results 4:---------------------------------
+--- mutant/adventurer_result.out	2016-06-06 12:25:36.000000000 -0700
++++ original/adventurer_result.out	2016-06-06 12:25:38.000000000 -0700
+@@ -2,6 +2,6 @@
+ *****Random test for adventurer*****
+ Error  Time
+ 1       0
+-2       2000
+-3       2000
++2       0
++3       0
+ ******** Random test done ********
+
+Differentce 5:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/adventurer/5.c	2016-06-06 10:49:53.000000000 -0700
+@@ -1261,8 +1261,8 @@
+ 
+         drawCard(currentPlayer, state);
+         cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
+-
+-        if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
++        /* XXX: original code was :         if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)) */
++        if(cardDrawn != copper || cardDrawn != silver || cardDrawn != gold)
+              drawntreasure++;
+         else{
+             temphand[z]=cardDrawn;
+
+Coverage 5:----------------------------------
+Test Results 5:---------------------------------
+

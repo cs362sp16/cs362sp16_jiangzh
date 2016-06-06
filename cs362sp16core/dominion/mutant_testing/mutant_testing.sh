@@ -3,12 +3,14 @@ filepath=$(cd "$(dirname "$0")"; pwd)
 
 mutant="mutant"
 original="original"
+output="output"
 
 if test $# = 1
 then
 	CARD=$1
 else
 	echo Usage: $0 card-name
+	exit
 fi
 
 if [ $CARD = "adventurer" ] 
@@ -18,7 +20,7 @@ elif [ $CARD = "council_room" ]
 then	
 	make_command="cardtest2"
 
-elif [ $CARD = "smity" ]
+elif [ $CARD = "smithy" ]
 then
 	make_command="randomtestcard2"
 
@@ -27,23 +29,24 @@ then
  	make_command="randomtestcard1"
 else
 	echo No this card
+	exit
 fi
 
-echo "--------------- Mutant testing for $CARD-----------------------" &> $CARD"_result.out" 
-echo > $CARD"_result.out" 
-echo > $CARD"_result.out" 
+echo "--------------- Mutant testing for $CARD-----------------------" &> $output"/"$CARD"_result.out" 
+echo > $output"/"$CARD"_result.out" 
+echo > $output"/"$CARD"_result.out" 
 
 int=0
 filename=1
 while(($int<5))
 do 
-	echo "Differentce $filename:----------------------------------" >> $CARD"_result.out" 
-	echo >> $CARD"_result.out"
-	diff -urN $original"/dominion.c" $mutant"/"$CARD"/"$filename".c" >> $CARD"_result.out"
-	echo >> $CARD"_result.out"
+	echo "Differentce $filename:----------------------------------" >> $output"/"$CARD"_result.out" 
+	echo >> $output"/"$CARD"_result.out"
+	diff -urN $original"/dominion.c" $mutant"/"$CARD"/"$filename".c" >> $output"/"$CARD"_result.out"
+	echo >> $output"/"$CARD"_result.out"
 
-
-	echo "Coverage $filename:----------------------------------" >> $CARD"_result.out" 
+	echo "Coverage $filename:----------------------------------" >> $output"/"$CARD"_result.out" 
+	
 	cd $mutant
 	cp $CARD"/"$filename".c" $filepath"/"$mutant
 	mv $filename".c" "dominion.c"
@@ -51,6 +54,7 @@ do
 	./$make_command >> $CARD"_result.out"
 	gcov dominion.c >> $filepath"/"$CARD"_result.out"
 	make clean
+	rm dominion.c
 	cd ..
 
 	cd $original
@@ -60,12 +64,13 @@ do
 	make clean
 	cd ..
 
-	echo "Test Results $filename:---------------------------------" >> $CARD"_result.out"
-	diff -urN $mutant"/"$CARD"_result.out" $original"/"$CARD"_result.out" >> $CARD"_result.out"
-	echo >> $CARD"_result.out"	
+	echo "Test Results $filename:---------------------------------" >> $output$"/"$CARD"_result.out"
+	diff -urN $mutant"/"$CARD"_result.out" $original"/"$CARD"_result.out" >> $output$"/"$CARD"_result.out"
+	echo >> $output"/"$CARD"_result.out"	
 
 	rm $mutant"/"$CARD"_result.out"
 	rm $original"/"$CARD"_result.out" 
+	rm $CARD"_result.out"
 
 	let "filename+=1"
 	let "int+=1"

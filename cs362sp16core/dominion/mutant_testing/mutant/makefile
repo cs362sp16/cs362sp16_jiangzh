@@ -79,13 +79,6 @@ output3:
 	gcov -f -b dominion.c &> testdominion.out
 	cat dominion.c.gcov >> testdominion.out
 
-mutant_testing:
-	./mutant_testing.sh adventurer
-	./mutant_testing.sh council_room
-	./mutant_testing.sh steward
-	./mutant_testing.sh smity	
-
-
 all_randomtest:
 	make randomtestadventurer
 	make randomtestcard1 

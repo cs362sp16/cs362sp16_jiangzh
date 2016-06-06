@@ -1,0 +1,197 @@
+
+Differentce 1:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/steward/1.c	2016-06-06 00:30:18.000000000 -0700
+@@ -889,8 +889,9 @@
+ 	  drawCard(currentPlayer, state);
+ 	  drawCard(currentPlayer, state);
+ 	}
+-      else if (choice1 == 2)
+-	{
++  /* XXX: original code was :       else if (choice1 == 2) */
++      else if (choice1  !=  2)
++  {
+ 	  //+2 coins
+ 	  state->coins = state->coins + 2;
+ 	}
+
+Coverage 1:----------------------------------
+File 'dominion.c'
+Lines executed:25.47% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:25.47% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 1:---------------------------------
+--- mutant/steward_result.out	2016-06-06 11:15:56.000000000 -0700
++++ original/steward_result.out	2016-06-06 11:15:59.000000000 -0700
+@@ -3,6 +3,6 @@
+ Error  Time
+ 1       0
+ 2       0
+-3       653
+-4       658
++3       0
++4       0
+ ******** Random test done ********
+
+Differentce 2:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/steward/2.c	2016-06-06 00:30:18.000000000 -0700
+@@ -902,7 +902,8 @@
+ 	}
+ 			
+       //discard card from hand
+-      discardCard(handPos, currentPlayer, state, 0);
++      /* XXX: original code was :       discardCard(handPos, currentPlayer, state, 0); */
++      discardCard(handPos, -1 * currentPlayer, state, 0);      
+       return 0;
+ 		
+     case tribute:
+
+Coverage 2:----------------------------------
+File 'dominion.c'
+Lines executed:0.00% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:25.47% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 2:---------------------------------
+--- mutant/steward_result.out	2016-06-06 11:15:59.000000000 -0700
++++ original/steward_result.out	2016-06-06 11:16:02.000000000 -0700
+@@ -0,0 +1,8 @@
++
++***** Random test for steward *****
++Error  Time
++1       0
++2       0
++3       0
++4       0
++******** Random test done ********
+
+Differentce 3:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/steward/3.c	2016-06-06 11:15:40.000000000 -0700
+@@ -889,15 +889,18 @@
+ 	  drawCard(currentPlayer, state);
+ 	  drawCard(currentPlayer, state);
+ 	}
++  /* XXX: original code was : 
+       else if (choice1 == 2)
+ 	{
+ 	  //+2 coins
+ 	  state->coins = state->coins + 2;
+ 	}
++  */
+       else
+ 	{
+ 	  //trash 2 cards in hand
+-	  discardCard(choice2, currentPlayer, state, 1);
++    
++    discardCard (choice2, currentPlayer, state, 1);
+ 	  discardCard(choice3, currentPlayer, state, 1);
+ 	}
+ 			
+
+Coverage 3:----------------------------------
+File 'dominion.c'
+Lines executed:25.12% of 637
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:25.47% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 3:---------------------------------
+--- mutant/steward_result.out	2016-06-06 11:16:04.000000000 -0700
++++ original/steward_result.out	2016-06-06 11:16:07.000000000 -0700
+@@ -3,6 +3,6 @@
+ Error  Time
+ 1       0
+ 2       0
+-3       679
++3       0
+ 4       0
+ ******** Random test done ********
+
+Differentce 4:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/steward/4.c	2016-06-06 00:30:18.000000000 -0700
+@@ -889,7 +889,8 @@
+ 	  drawCard(currentPlayer, state);
+ 	  drawCard(currentPlayer, state);
+ 	}
+-      else if (choice1 == 2)
++      /* XXX: original code was :       else if (choice1 == 2) */
++      else if (choice1  <=  2)
+ 	{
+ 	  //+2 coins
+ 	  state->coins = state->coins + 2;
+
+Coverage 4:----------------------------------
+File 'dominion.c'
+Lines executed:25.16% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:25.47% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 4:---------------------------------
+--- mutant/steward_result.out	2016-06-06 11:16:10.000000000 -0700
++++ original/steward_result.out	2016-06-06 11:16:12.000000000 -0700
+@@ -4,5 +4,5 @@
+ 1       0
+ 2       0
+ 3       0
+-4       653
++4       0
+ ******** Random test done ********
+
+Differentce 5:----------------------------------
+
+--- original/dominion.c	2016-06-06 00:30:18.000000000 -0700
++++ mutant/steward/5.c	2016-06-06 00:30:18.000000000 -0700
+@@ -883,7 +883,8 @@
+       return 0;
+ 		
+     case steward:
+-      if (choice1 == 1)
++    /* XXX: original code was :    if (choice1 == 1) */
++      if (choice1 != 1)
+ 	{
+ 	  //+2 cards
+ 	  drawCard(currentPlayer, state);
+
+Coverage 5:----------------------------------
+File 'dominion.c'
+Lines executed:25.16% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+File 'dominion.c'
+Lines executed:25.47% of 640
+dominion.c:creating 'dominion.c.gcov'
+
+Test Results 5:---------------------------------
+--- mutant/steward_result.out	2016-06-06 11:16:15.000000000 -0700
++++ original/steward_result.out	2016-06-06 11:16:17.000000000 -0700
+@@ -2,7 +2,7 @@
+ ***** Random test for steward *****
+ Error  Time
+ 1       0
+-2       668
+-3       652
+-4       680
++2       0
++3       0
++4       0
+ ******** Random test done ********
+

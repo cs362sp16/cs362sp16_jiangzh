@@ -1261,8 +1261,8 @@ int adventurer_function(struct gameState *state, int currentPlayer){
 
         drawCard(currentPlayer, state);
         cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];
-
-        if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+        /* XXX: original code was :         if(cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)) */
+        if(cardDrawn != copper || cardDrawn != silver || cardDrawn != gold)
              drawntreasure++;
         else{
             temphand[z]=cardDrawn;
@@ -1323,8 +1323,9 @@ int smithy_function(struct gameState *state, int currentPlayer, int handPos){
     
 	for(i=0; i<3; i++)
         drawCard(currentPlayer, state);
-    /* XXX: original code was :     discardCard(handPos, currentPlayer, state, 0); */
-    discardCard (handPos-1, currentPlayer, state, 0);
+
+    discardCard(handPos, currentPlayer, state, 0);
+    
 	return 0;
 
 }
