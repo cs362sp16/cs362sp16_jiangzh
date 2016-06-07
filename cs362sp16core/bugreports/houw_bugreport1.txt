@@ -6,6 +6,9 @@ Method of Testing:
 	- random testing
 
 Results:
+	- According to these results, the player did not
+	gain any cards after using "great hall"
+
 	*****Card test for great hall*****
 	PASS 1: This card can be executed
 	Failure 2:  The effact of this card is incorrect
@@ -13,7 +16,7 @@ Results:
 
 Location:
 	- _cardEffect_great_hall()
-	- line 684
+	- line 684 empty
 
 Bug: 
 	- delete one of effects for this card

@@ -6,6 +6,9 @@ Method of Testing:
 	- random testing
 
 Results:
+	- Accoding to these results, the problem is player gains 
+	incorrect number of cards after using "smithy"
+
 	*****Card test for smithy*****
 	PASS 1: This card can be executed
 	FAILURE 2: The effact of this card is incorrect

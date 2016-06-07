@@ -125,7 +125,7 @@ Summary:
 	wrong. Secondly, I need to choose proper file for GDB, so I chose cardtest2 for council room, 
 	randomtestadventurer for adventurer, and testdominion for village. 
 
-	- After these things are done, I can start to use GDB. Now, first thing I need to know break 
+	- After these things are done, I can start to use GDB. Now, first thing I need to know is break 
 	point for each file. File cardtest2 and randomtestadventurer are used to test council room and 
 	adventurer wholly, so it is easy to find break point in these file. I chose cardEffect() function 
 	as break point for both of them because when calling this function, value I want to test starts 
@@ -133,13 +133,13 @@ Summary:
 
 	As for testdominion, it is a little hard to set break point because this file is used to test 
 	entire game. Condition break point can solve this problem. When generate_choice(g, gainCard, 
-	&choice1, &choice2, &choice3) is called, the variable "gainCard" means card user will play, so 
-	I set condition break point "break 157 if gainCard==14"(village is 14) and the program will stop 
-	until user is ready to play village.
+	&choice1, &choice2, &choice3) is called, the variable "gainCard" represents card user will play, 
+	so I set condition break point "break 157 if gainCard==14"(village is 14) and the program will 
+	stop until user is ready to play village.
 
 	- Now, I narrowed the range of finding bug according to break point, so I used command "step" to check 
 	each line in this small range. When I find place where bug probably appears, I used command "print 
-	variable" to check value of some variables. Something, I will set value to some variables in order to 
+	variable" to check value of some variables. Sometimes, I will set value to some variables in order to 
 	better check these codes. Eventually, I found all of bugs in my code.
 
 

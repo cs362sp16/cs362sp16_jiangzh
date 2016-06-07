@@ -6,6 +6,9 @@ Method of Testing:
 	- random testing
 
 Results:
+	- According to these results, the player gains 
+	incorrect number of card after using "council room"
+
 	*****Card test for council room*****
 	PASS 1: This card can be executed
 	Failure 2:  The effact of this card is incorrect
